@@ -63,7 +63,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AllTests.cpp" />
-    <ClCompile Include="MyFirstTest.cpp" />
+    <ClCompile Include="TestGameOfLifeEngine.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

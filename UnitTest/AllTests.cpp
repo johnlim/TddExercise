@@ -1,6 +1,6 @@
 #include "CppUTest/CommandLineTestRunner.h"
 
-IMPORT_TEST_GROUP(FirstTestGroup);
+IMPORT_TEST_GROUP(GameOfLifeEngine);
 
 int main(int ac, char** av)
 {
