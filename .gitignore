@@ -1,0 +1,12 @@
+#ignore compiler generated folders/files:
+/ipch
+/Debug
+/GameOfLife/Debug
+/UnitTest/Debug
+
+#Ignore VS2010 IDE generated files
+*.user
+*.suo
+*.sdf
+*.opensdf
+
