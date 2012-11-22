@@ -1,10 +1,13 @@
 #include "CppUTest/TestHarness.h"
+#include "GameOfLife.h"
 
 TEST_GROUP(GameOfLifeEngine)
 {
+    
 };
 
-TEST(GameOfLifeEngine, CreationOfGameGridCreatesGridSizeAccordingToInputParameters)
+TEST(GameOfLifeEngine, GameGridIsCreatedWhenGameOfLifeIsInstantiated)
 {
-  FAIL("Fail me!");
+  GameOfLife game(2,3);
+  CHECK_TRUE(game.GameGrid);
 }
