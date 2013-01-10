@@ -1,4 +1,5 @@
-class GameOfLife
+#include <string>
+/*class GameOfLife
 {
 public:
   GameOfLife(int noOfXCells, int noOfYCells);
@@ -17,4 +18,10 @@ private:
   GameOfLife& operator=(const GameOfLife&);
 
   void CreateGrid();
+};*/
+
+class Calculator {
+public:
+  int calculate( std::string str );
+
 };
