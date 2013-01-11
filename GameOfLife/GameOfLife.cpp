@@ -16,10 +16,15 @@ GameOfLife::~GameOfLife()
 
 void GameOfLife::CreateGrid()
 {
-  GameGrid = new int[noOfXCells * noOfYCells];
+  GameGrid = new int[noOfXCells * noOfYCells]();
 }
 
 bool GameOfLife::IsCellAlive(int x, int y)
 {
-  return GameGrid[x * y];
+  return ((bool) GameGrid[x * y]);
 }
+
+//void GameOfLife::GiveCellLife(int x, int y)
+//{
+//  GameGrid[x * y] = true;
+//}

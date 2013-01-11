@@ -16,10 +16,15 @@ TEST(GameOfLifeEngine, GameGridIsBlankWhenGameOfLifeIsInstantiated)
   {
     for(int y = 0; y<(noOfYCells); y++)
     {
-      CHECK_FALSE(0, game.IsCellAlive(x,y)); 
+      CHECK_FALSE(game.IsCellAlive(x,y)); 
       NoOfCellsChecked++;
     }
   }
   //Ensure every cell was checked;
   LONGS_EQUAL(noOfXCells*noOfYCells, NoOfCellsChecked);
 }
+
+//TEST(GameOfLifeEngine, CellReturnsTrueIfItIsAlive)
+//{
+//  CHECK_TRUE(
+//}

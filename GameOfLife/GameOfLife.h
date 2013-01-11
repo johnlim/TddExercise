@@ -5,6 +5,7 @@ public:
   ~GameOfLife();
   
   bool IsCellAlive(int x, int y);
+  //void GiveCellLife(int x, int y);
 
 protected:
 
