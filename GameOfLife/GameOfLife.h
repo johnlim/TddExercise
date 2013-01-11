@@ -12,7 +12,7 @@ protected:
 private:
   const int noOfXCells;
   const int noOfYCells;
-  int* GameGrid;
+  bool* GameGrid;
   
 
   GameOfLife(const GameOfLife&);

@@ -16,7 +16,7 @@ GameOfLife::~GameOfLife()
 
 void GameOfLife::CreateGrid()
 {
-  GameGrid = new int[noOfXCells * noOfYCells]();
+  GameGrid = new bool[noOfXCells * noOfYCells]();
 }
 
 bool GameOfLife::IsCellAlive(int x, int y)
