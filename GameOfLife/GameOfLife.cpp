@@ -18,3 +18,8 @@ void GameOfLife::CreateGrid()
 {
   GameGrid = new int[noOfXCells * noOfYCells];
 }
+
+bool GameOfLife::IsCellAlive(int x, int y)
+{
+  return GameGrid[x * y];
+}
