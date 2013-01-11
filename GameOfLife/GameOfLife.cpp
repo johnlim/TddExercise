@@ -24,7 +24,7 @@ bool GameOfLife::IsCellAlive(int x, int y)
   return ((bool) GameGrid[x * y]);
 }
 
-//void GameOfLife::GiveCellLife(int x, int y)
-//{
-//  GameGrid[x * y] = true;
-//}
+void GameOfLife::GiveCellLife(int x, int y)
+{
+  GameGrid[x * y] = true;
+}

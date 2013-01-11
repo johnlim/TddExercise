@@ -24,7 +24,13 @@ TEST(GameOfLifeEngine, GameGridIsBlankWhenGameOfLifeIsInstantiated)
   LONGS_EQUAL(noOfXCells*noOfYCells, NoOfCellsChecked);
 }
 
-//TEST(GameOfLifeEngine, CellReturnsTrueIfItIsAlive)
-//{
-//  CHECK_TRUE(
-//}
+TEST(GameOfLifeEngine, CellReturnsTrueIfItIsAlive)
+{
+  int noOfXCells = 2;
+  int noOfYCells = 3;
+  int NoOfCellsChecked = 0;
+
+  GameOfLife game(noOfXCells,noOfYCells);
+  game.GiveCellLife(1,1);
+  CHECK_TRUE(game.IsCellAlive(1,1));
+}
