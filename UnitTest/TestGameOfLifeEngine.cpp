@@ -51,8 +51,38 @@ TEST(GameOfLifeEngine, CellReturnsTrueIfItIsAliveAndReturnsFalseIfOtherwise)
   LONGS_EQUAL(noOfXCells*noOfYCells, NoOfCellsChecked);
 }
 
-TEST(GameOfLifeEngine, AnyLiveCellWithFewerThanTwoLiveNeighboursDies)
+TEST(GameOfLifeEngine, CopyConstructorCreatesACopyOfGameGridAndItsStates)
 {
-  FAIL("Pass the Test!")
+  int noOfXCells = 5;
+  int noOfYCells = 8;
+  int NoOfCellsChecked = 0;
+
+  GameOfLife game(noOfXCells,noOfYCells);
+  game.GiveCellLife(4,7);
+
+  GameOfLife gameCopy(game);
+  
+  for (int x = 0; x<(noOfXCells); x++)
+  {
+    for(int y = 0; y<(noOfYCells); y++)
+    {
+      if(x==4 && y==7)
+      {
+        CHECK_TRUE(game.IsCellAlive(x,y));
+      }
+      else
+      {
+        CHECK_FALSE(gameCopy.IsCellAlive(x,y)); 
+      }
+      NoOfCellsChecked++;
+    }
+  }
+  //Ensure every cell was checked;
+  LONGS_EQUAL(noOfXCells*noOfYCells, NoOfCellsChecked);
 }
+
+//TEST(GameOfLifeEngine, AnyLiveCellWithFewerThanTwoLiveNeighboursDies)
+//{
+//  FAIL("Pass the Test!");
+//}
 
