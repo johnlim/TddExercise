@@ -5,7 +5,7 @@ public:
   ~GameOfLife();
   GameOfLife(const GameOfLife& rhs);
   
-  bool IsCellAlive(int x, int y);
+  bool IsCellAlive(int x, int y) const;
   void GiveCellLife(int x, int y);
 
 protected:

@@ -20,7 +20,7 @@ void GameOfLife::CreateGrid()
   GameGrid = new bool[noOfXCells * noOfYCells]();
 }
 
-bool GameOfLife::IsCellAlive(int x, int y)
+bool GameOfLife::IsCellAlive(int x, int y) const
 {
   assert((x < noOfXCells) && (y < noOfYCells));
   return ((bool) GameGrid[x * y]);
