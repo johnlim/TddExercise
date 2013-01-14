@@ -46,7 +46,25 @@ TEST(Calculator, ParserShouldHandleNegativeNumber)
   LONGS_EQUAL( 3, c.parse("  -2 *   1 "));
 }
 
-TEST(Calculator, ParserShouldReturnInvalidIfStringHasSpaceBetween2Numbers)
+IGNORE_TEST(Calculator, ParserShouldReturnInvalidIfStringHasSpaceBetween2Numbers)
 {
   LONGS_EQUAL( -1, c.parse("12 3 + 1 "));
+}
+
+TEST(Calculator, ParserShouldStripWhiteSpacesIncludingTabAndNewLine)
+{
+  STRCMP_EQUAL( "2*4/5-1", c.stripWhiteSpaces("  2 *   4 \n / 5 \t  -  1 ").c_str());
+}
+
+TEST(Calculator, TestCalculatorReturnCorrectNumberToken)
+{
+  
+  LONGS_EQUAL(5, c.returnNumberOfTokens(c.stripWhiteSpaces("1+2+3")));
+
+}
+
+TEST(Calculator, TestCalculatorReturnCorrectNumberToken2)
+{
+
+  LONGS_EQUAL(7, c.returnNumberOfTokens(c.stripWhiteSpaces(" 1+ 332*13/3")));
 }

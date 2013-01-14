@@ -39,3 +39,39 @@ int Calculator::parse( std::string str )
 
   return count*2 + 1;
 }
+
+std::string Calculator::stripWhiteSpaces( std::string str )
+{
+  std::string result;
+  for (size_t i = 0; i < str.length(); i++)
+  {
+    if (str[i] != ' ' && str[i] != '\n' && str[i] != '\t')
+      result.push_back(str[i]);
+  }
+  return result;
+}
+
+#include <vector>
+using namespace std;
+
+
+size_t Calculator::returnNumberOfTokens( std::string str )
+{
+  vector<string> sv;
+  string str2;
+
+  for (size_t i = 0; i< str.length(); i++ )
+  {
+      if(str[i] >= '0' && str[i] <= '9'){
+        str2.push_back(str[i]);
+      }else{
+        sv.push_back(str2);
+        sv.push_back(string(1, str[i]));
+        str2.clear();
+      }
+  }
+  sv.push_back(str2);
+
+
+  return sv.size();
+}
