@@ -18,3 +18,8 @@ int Calculator::calculate( std::string str )
 
   return (atoi(operands[0].c_str()) + atoi(operands[1].c_str()));
 }
+
+int Calculator::parse( std::string str )
+{
+  return 3;
+}
