@@ -25,3 +25,8 @@ TEST(Calculator, TestAdditionWithTwoOperandsWithSpaces)
 {
   LONGS_EQUAL( 2, c.calculate(" 1 + 1 ") );
 }
+
+TEST(Calculator, ParserShouldStripOutSpaces)
+{
+  LONGS_EQUAL( 3, c.parse(" 12 + 2 ")); 
+}
