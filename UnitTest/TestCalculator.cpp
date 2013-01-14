@@ -45,3 +45,8 @@ TEST(Calculator, ParserShouldHandleNegativeNumber)
 {
   LONGS_EQUAL( 3, c.parse("  -2 *   1 "));
 }
+
+TEST(Calculator, ParserShouldReturnInvalidIfStringHasSpaceBetween2Numbers)
+{
+  LONGS_EQUAL( -1, c.parse("12 3 + 1 "));
+}

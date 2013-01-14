@@ -24,10 +24,18 @@ int Calculator::parse( std::string str )
 {
   int count=0;
 
-  for(int i=0; i < str.length(); i++ ){
+  for(unsigned int i=0; i < str.length(); i++ ){
     if( str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/' ) {
       count++;
     }
   }
+
+  int first_position = str.find_first_of("0123456789");
+  int first_positionOfNonNumer = str.find_first_of("-");
+  if ((first_positionOfNonNumer != -1) && (first_positionOfNonNumer < first_position))
+  {
+    count--;
+  }
+
   return count*2 + 1;
 }
