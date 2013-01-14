@@ -26,12 +26,22 @@ TEST(Calculator, TestAdditionWithTwoOperandsWithSpaces)
   LONGS_EQUAL( 2, c.calculate(" 1 + 1 ") );
 }
 
-TEST(Calculator, ParserShouldStripOutSpaces)
+TEST(Calculator, ParserShouldReturn3WhenThereAre3tokens)
 {
   LONGS_EQUAL( 3, c.parse(" 12 + 2 ")); 
 }
 
-TEST(Calculator, ParserShouldStripOutSpaces)
+TEST(Calculator, ParserShouldReturn5WhenThereAre5tokens)
 {
-  LONGS_EQUAL( 4, c.parse("  12 + 2 ")); 
+  LONGS_EQUAL( 5, c.parse("  2 + 2 +1 "));
+}
+
+TEST(Calculator, ParserShouldHandlePlusMinusMultiplyDivide)
+{
+  LONGS_EQUAL( 9, c.parse("  2 * 2 / 1 + 30 - 888"));
+}
+
+TEST(Calculator, ParserShouldHandleNegativeNumber)
+{
+  LONGS_EQUAL( 3, c.parse("  -2 *   1 "));
 }

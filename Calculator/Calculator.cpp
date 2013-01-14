@@ -19,7 +19,15 @@ int Calculator::calculate( std::string str )
   return (atoi(operands[0].c_str()) + atoi(operands[1].c_str()));
 }
 
+#include <iostream>
 int Calculator::parse( std::string str )
 {
-  return 3;
+  int count=0;
+
+  for(int i=0; i < str.length(); i++ ){
+    if( str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/' ) {
+      count++;
+    }
+  }
+  return count*2 + 1;
 }
