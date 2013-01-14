@@ -18,9 +18,6 @@
     <ClCompile Include="AllTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TestGameOfLifeEngine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="TestCalculator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
