@@ -30,3 +30,8 @@ TEST(Calculator, ParserShouldStripOutSpaces)
 {
   LONGS_EQUAL( 3, c.parse(" 12 + 2 ")); 
 }
+
+TEST(Calculator, ParserShouldStripOutSpaces)
+{
+  LONGS_EQUAL( 4, c.parse("  12 + 2 ")); 
+}
