@@ -1,0 +1,4 @@
+As a user, I would like to input a formula as a string and get the correct result.
+As a user, I would like to input a formula as a string with white spaces and still get the correct result.
+As a user, I would like to key in the following forumla, A+B*C(D/E)-F and get the correct result.
+As a user, I would like to be informed if the string formula keyed in is of an invalid format.
