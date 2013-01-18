@@ -31,19 +31,23 @@ TEST(GameOfLifeEngine, CellReturnsTrueIfItIsAliveAndReturnsFalseIfOtherwise)
   int NoOfCellsChecked = 0;
 
   GameOfLife game(noOfXCells,noOfYCells);
-  game.GiveCellLife(1,1);
-  CHECK_TRUE(game.IsCellAlive(1,1));
-  NoOfCellsChecked++;
-
+  
+  //check boundary + 1 conditions 
+  game.GiveCellLife(0,1); 
+  game.GiveCellLife(1,0); 
+  
   for (int x = 0; x<(noOfXCells); x++)
   {
     for(int y = 0; y<(noOfYCells); y++)
     {
-      if(x==1 && y==1)
+      if((x==0 && y==1)||(x==1 && y==0))
       {
-        continue;
+        CHECK_TRUE(game.IsCellAlive(x,y));
       }
-      CHECK_FALSE(game.IsCellAlive(x,y)); 
+      else
+      {
+          CHECK_FALSE(game.IsCellAlive(x,y)); 
+      }
       NoOfCellsChecked++;
     }
   }
@@ -83,6 +87,22 @@ TEST(GameOfLifeEngine, CopyConstructorCreatesACopyOfGameGridAndItsStates)
 
 //TEST(GameOfLifeEngine, AnyLiveCellWithFewerThanTwoLiveNeighboursDies)
 //{
-//  FAIL("Pass the Test!");
+//  int noOfXCells = 2;
+//  int noOfYCells = 2;
+//  GameOfLife game(noOfXCells, noOfYCells);
+//
+//  game.GiveCellLife(0,0);
+//  game.TriggerNextGeneration();
+//
+//  for (int x = 0; x<(noOfXCells); x++)
+//  {
+//    for(int y = 0; y<(noOfYCells); y++)
+//    {
+//      CHECK_FALSE(gameCopy.IsCellAlive(x,y)); 
+//    }
+//    NoOfCellsChecked++;
+//  }
+//  //Ensure every cell was checked;
+//  LONGS_EQUAL(noOfXCells*noOfYCells, NoOfCellsChecked);
 //}
 
