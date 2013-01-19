@@ -115,3 +115,24 @@ TEST(GameOfLifeEngine, IsCellAliveReturnsFalseForInvalidCells)
   LONGS_EQUAL((noOfXCells*2+ noOfYCells*2 + 4), NoOfCellsChecked);
 }
 
+TEST(GameOfLifeEngine, ReturnsNumberOfLiveNeighbours)
+{
+  int noOfXCells = 3;
+  int noOfYCells = 3;
+  GameOfLife game(noOfXCells, noOfYCells);
+
+  game.GiveCellLife(0,0);
+  LONGS_EQUAL(0, game.ReturnNumberOfLiveNeighboursForCell(0,0));
+  
+  game.GiveCellLife(1,1);
+  LONGS_EQUAL(1, game.ReturnNumberOfLiveNeighboursForCell(0,0));
+  LONGS_EQUAL(1, game.ReturnNumberOfLiveNeighboursForCell(1,1));
+  LONGS_EQUAL(2, game.ReturnNumberOfLiveNeighboursForCell(1,0));
+
+  game.GiveCellLife(0,1);
+  LONGS_EQUAL(3, game.ReturnNumberOfLiveNeighboursForCell(1,0));
+
+}
+
+
+

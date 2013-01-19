@@ -51,4 +51,18 @@ GameOfLife::GameOfLife(const GameOfLife& rhs)
   }
 }
 
-
+unsigned int GameOfLife::ReturnNumberOfLiveNeighboursForCell(int x, int y)
+{
+  unsigned int NumberOfLiveNeighbours = 0;
+  
+  if (IsCellAlive(x+1,y))   NumberOfLiveNeighbours++;
+  if (IsCellAlive(x,y+1))   NumberOfLiveNeighbours++;
+  if (IsCellAlive(x+1,y+1)) NumberOfLiveNeighbours++;
+  if (IsCellAlive(x-1,y))   NumberOfLiveNeighbours++;
+  if (IsCellAlive(x,y-1))   NumberOfLiveNeighbours++;
+  if (IsCellAlive(x-1,y-1)) NumberOfLiveNeighbours++;
+  if (IsCellAlive(x+1,y-1)) NumberOfLiveNeighbours++;
+  if (IsCellAlive(x-1,y+1)) NumberOfLiveNeighbours++;
+    
+  return NumberOfLiveNeighbours;
+}
