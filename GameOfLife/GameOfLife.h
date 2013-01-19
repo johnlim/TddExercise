@@ -7,7 +7,6 @@ public:
   
   bool IsCellAlive(int x, int y) const;
   void GiveCellLife(int x, int y);
-  void TriggerNextGeneration(void);
 
 protected:
 

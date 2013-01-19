@@ -22,13 +22,17 @@ void GameOfLife::CreateGrid()
 
 bool GameOfLife::IsCellAlive(int x, int y) const
 {
-  assert((x < noOfXCells) && (y < noOfYCells));
+  if(((x > noOfXCells) || (y > noOfYCells) || (x < 0) || (y < 0)))
+  {
+    return false;
+  }
   return ((bool) GameGrid[x * noOfYCells + y]);
 }
 
 void GameOfLife::GiveCellLife(int x, int y)
 {
   assert((x < noOfXCells) && (y < noOfYCells));
+  assert(((x >= 0) && (y >= 0)));
   GameGrid[x * noOfYCells + y] = true;
 }
 
@@ -47,23 +51,4 @@ GameOfLife::GameOfLife(const GameOfLife& rhs)
   }
 }
 
-//void GameOfLife::TriggerNextGeneration(void)
-//{
-//  GameGridCache = new bool[noOfXCells * noOfYCells]();
-//  for (int x = 0; x < noOfXCells; x++)
-//  {
-//    for (int y = 0; y < noOfYCells; y++)
-//    {
-//      GameGridCache[x * y] = GameGrid[x * y];
-//    }
-//  }
-//  for (int x = 0; x < noOfCells; x++)
-//  {
-//    for (int y = 0; y < noOfYCells; y++)
-//    {
-//      if IsCellAlive(x,y)
-//      {
-//        if(IsCellAlive(x+1,y)||(IsCellAlive(x-1,y)||(IsCellAlive(x,y+1)||(IsCellAlive(x,y-1)||(IsCellAlive(x+1,y+1))||(IsCellAlive(x-1,y-1)||(IsCellAlive(x+1,y-1))||(IsCellAlive(x-1,y+1))
-//      }
-//    }
-//}
+
