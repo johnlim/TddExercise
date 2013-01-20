@@ -7,7 +7,8 @@ public:
   
   bool IsCellAlive(int x, int y) const;
   void GiveCellLife(int x, int y);
-  unsigned int ReturnNumberOfLiveNeighboursForCell(int x, int y);
+  unsigned int ReturnNumberOfLiveNeighboursForCell(int x, int y) const;
+  void TriggerNextGeneration(void);
 
 protected:
 
