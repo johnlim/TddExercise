@@ -1,5 +1,6 @@
 #include "GameOfLife.h"
 #include <assert.h>
+#include <cstring>
 
 GameOfLife::GameOfLife(int noOfXCells, int noOfYCells)
            :GameGrid(0),
@@ -70,13 +71,14 @@ unsigned int GameOfLife::ReturnNumberOfLiveNeighboursForCell(int x, int y) const
 void GameOfLife::TriggerNextGeneration(void)
 {
   bool * GameGridCache = new bool[noOfXCells * noOfYCells]();
-  for (int x = 0; x < noOfXCells; x++)
+  memcpy(GameGridCache, GameGrid, noOfXCells * noOfYCells * sizeof(bool)); 
+  /*for (int x = 0; x < noOfXCells; x++)
   {
     for (int y = 0; y < noOfYCells; y++)
     {
       GameGridCache[x * noOfYCells + y] = GameGrid[x * noOfYCells + y];
     }
-  }
+  }*/
   for (int x = 0; x < noOfXCells; x++)
   {
     for (int y = 0; y < noOfYCells; y++)
@@ -90,13 +92,7 @@ void GameOfLife::TriggerNextGeneration(void)
       }
     }
   }
-  for (int x = 0; x < noOfXCells; x++)
-  {
-    for (int y = 0; y < noOfYCells; y++)
-    {
-      GameGrid[x * noOfYCells + y] = GameGridCache[x * noOfYCells + y];
-    }
-  }
+  memcpy(GameGrid, GameGridCache, noOfXCells * noOfYCells * sizeof(bool));
 
   delete GameGridCache;
 }
