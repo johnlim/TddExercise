@@ -82,7 +82,7 @@ void GameOfLife::TriggerNextGeneration(void)
         {
           GameGridCache[x * noOfYCells + y] = false;
         }
-        else if((ReturnNumberOfLiveNeighboursForCell(x,y) == 2))
+        else if((ReturnNumberOfLiveNeighboursForCell(x,y) == 2) || (ReturnNumberOfLiveNeighboursForCell(x,y) == 3))
         {
           GameGridCache[x * noOfYCells + y] = true;
         }
