@@ -242,3 +242,37 @@ TEST(GameOfLifeEngine, AnyLiveCellWithTwoNeighboursLivesOnToNextGeneration) //An
   }
   LONGS_EQUAL(NoOfCellsChecked, noOfXCells * noOfYCells);
 }
+
+TEST(GameOfLifeEngine, AnyLiveCellWithThreeNeighboursLivesOnToNextGeneration) //AnyLiveCellWithTwoOrThreeNeighboursLivesOnToNextGeneration
+{
+  int noOfXCells = 3;
+  int noOfYCells = 3;
+  int NoOfCellsChecked = 0;
+  
+  GameOfLife game(noOfXCells, noOfYCells);
+
+  game.GiveCellLife(2,2);
+  game.GiveCellLife(1,1);
+  game.GiveCellLife(0,0);
+  game.GiveCellLife(0,2);
+
+  game.TriggerNextGeneration();
+
+  for(int x = 0; x < noOfXCells; x++)
+  {
+    for(int y = 0; y < noOfYCells; y++)
+    {
+      if(x==1 && y==1)
+      {
+        CHECK_TRUE(game.IsCellAlive(x,y));
+        NoOfCellsChecked++;
+      }
+      else
+      {
+        CHECK_FALSE(game.IsCellAlive(x,y));
+        NoOfCellsChecked++;
+      }
+    }
+  }
+  LONGS_EQUAL(NoOfCellsChecked, noOfXCells * noOfYCells);
+}

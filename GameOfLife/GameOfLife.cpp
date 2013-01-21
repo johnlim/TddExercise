@@ -72,8 +72,6 @@ void GameOfLife::TriggerNextGeneration(void)
 {
   bool * GameGridCache = new bool[noOfXCells * noOfYCells]();
   
-  memcpy(GameGridCache, GameGrid, noOfXCells * noOfYCells * sizeof(bool)); 
-  
   for (int x = 0; x < noOfXCells; x++)
   {
     for (int y = 0; y < noOfYCells; y++)
