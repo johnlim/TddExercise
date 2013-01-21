@@ -122,8 +122,12 @@ TEST(GameOfLifeEngine, ReturnsNumberOfLiveNeighbours)
   GameOfLife game(noOfXCells, noOfYCells);
 
   game.GiveCellLife(0,0);
-  LONGS_EQUAL(0, game.ReturnNumberOfLiveNeighboursForCell(0,0));
-  
+  //Check all 4 corners
+  LONGS_EQUAL(0, game.ReturnNumberOfLiveNeighboursForCell(0,0)); 
+  LONGS_EQUAL(0, game.ReturnNumberOfLiveNeighboursForCell(2,2));
+  LONGS_EQUAL(0, game.ReturnNumberOfLiveNeighboursForCell(2,0));
+  LONGS_EQUAL(0, game.ReturnNumberOfLiveNeighboursForCell(0,2));
+
   game.GiveCellLife(1,1);
   LONGS_EQUAL(1, game.ReturnNumberOfLiveNeighboursForCell(0,0));
   LONGS_EQUAL(1, game.ReturnNumberOfLiveNeighboursForCell(1,1));
@@ -134,7 +138,8 @@ TEST(GameOfLifeEngine, ReturnsNumberOfLiveNeighbours)
 
 }
 
-TEST(GameOfLifeEngine, AnyLiveCellWithFewerThanTwoLiveNeighboursDies)
+
+TEST(GameOfLifeEngine, AnyLiveCellWithZeroLiveNeighboursDies) //AnyLiveCellWithFewerThanTwoLiveNeighboursDies
 {
   int noOfXCells = 3;
   int noOfYCells = 3;
@@ -157,3 +162,83 @@ TEST(GameOfLifeEngine, AnyLiveCellWithFewerThanTwoLiveNeighboursDies)
   LONGS_EQUAL(noOfXCells*noOfYCells, NoOfCellsChecked);
 }
 
+TEST(GameOfLifeEngine, AnyLiveCellWithOnlyOneLiveNeighboursDies) //AnyLiveCellWithFewerThanTwoLiveNeighboursDies
+{
+  int noOfXCells = 3;
+  int noOfYCells = 3;
+  int NoOfCellsChecked = 0;
+  
+  GameOfLife game(noOfXCells, noOfYCells);
+
+  game.GiveCellLife(0,0);
+  game.GiveCellLife(1,1);
+  game.TriggerNextGeneration();
+
+  for (int x = 0; x<(noOfXCells); x++)
+  {
+    for(int y = 0; y<(noOfYCells); y++)
+    {
+      CHECK_FALSE(game.IsCellAlive(x,y)); 
+      NoOfCellsChecked++;
+    }
+  }
+  //Ensure every cell was checked;
+  LONGS_EQUAL(noOfXCells*noOfYCells, NoOfCellsChecked);
+}
+
+TEST(GameOfLifeEngine, AnyLiveCellWithOnlyOneLiveNeighboursDies22) //AnyLiveCellWithFewerThanTwoLiveNeighboursDies
+{
+  int noOfXCells = 3;
+  int noOfYCells = 3;
+  int NoOfCellsChecked = 0;
+  
+  GameOfLife game(noOfXCells, noOfYCells);
+
+  game.GiveCellLife(2,2);
+  game.GiveCellLife(1,1);
+  game.TriggerNextGeneration();
+
+  for (int x = 0; x<(noOfXCells); x++)
+  {
+    for(int y = 0; y<(noOfYCells); y++)
+    {
+      CHECK_FALSE(game.IsCellAlive(x,y)); 
+      NoOfCellsChecked++;
+    }
+  }
+  //Ensure every cell was checked;
+  LONGS_EQUAL(noOfXCells*noOfYCells, NoOfCellsChecked);
+}
+
+TEST(GameOfLifeEngine, AnyLiveCellWithTwoNeighboursLivesOnToNextGeneration) //AnyLiveCellWithTwoOrThreeNeighboursLivesOnToNextGeneration
+{
+  int noOfXCells = 3;
+  int noOfYCells = 3;
+  int NoOfCellsChecked = 0;
+  
+  GameOfLife game(noOfXCells, noOfYCells);
+
+  game.GiveCellLife(2,2);
+  game.GiveCellLife(1,1);
+  game.GiveCellLife(0,0);
+
+  game.TriggerNextGeneration();
+
+  for(int x = 0; x < noOfXCells; x++)
+  {
+    for(int y = 0; y < noOfYCells; y++)
+    {
+      if(x==1 && y==1)
+      {
+        CHECK_TRUE(game.IsCellAlive(x,y));
+        NoOfCellsChecked++;
+      }
+      else
+      {
+        CHECK_FALSE(game.IsCellAlive(x,y));
+        NoOfCellsChecked++;
+      }
+    }
+  }
+  LONGS_EQUAL(NoOfCellsChecked, noOfXCells * noOfYCells);
+}

@@ -23,7 +23,7 @@ void GameOfLife::CreateGrid()
 
 bool GameOfLife::IsCellAlive(int x, int y) const
 {
-  if(((x > noOfXCells) || (y > noOfYCells) || (x < 0) || (y < 0)))
+  if(((x >= noOfXCells) || (y >= noOfYCells) || (x < 0) || (y < 0)))
   {
     return false;
   }
@@ -71,14 +71,9 @@ unsigned int GameOfLife::ReturnNumberOfLiveNeighboursForCell(int x, int y) const
 void GameOfLife::TriggerNextGeneration(void)
 {
   bool * GameGridCache = new bool[noOfXCells * noOfYCells]();
+  
   memcpy(GameGridCache, GameGrid, noOfXCells * noOfYCells * sizeof(bool)); 
-  /*for (int x = 0; x < noOfXCells; x++)
-  {
-    for (int y = 0; y < noOfYCells; y++)
-    {
-      GameGridCache[x * noOfYCells + y] = GameGrid[x * noOfYCells + y];
-    }
-  }*/
+  
   for (int x = 0; x < noOfXCells; x++)
   {
     for (int y = 0; y < noOfYCells; y++)
@@ -88,6 +83,10 @@ void GameOfLife::TriggerNextGeneration(void)
         if (ReturnNumberOfLiveNeighboursForCell(x,y) < 2)
         {
           GameGridCache[x * noOfYCells + y] = false;
+        }
+        else if((ReturnNumberOfLiveNeighboursForCell(x,y) == 2))
+        {
+          GameGridCache[x * noOfYCells + y] = true;
         }
       }
     }
