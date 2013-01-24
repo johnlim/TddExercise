@@ -72,17 +72,23 @@ void GameOfLife::TriggerNextGeneration(void)
 {
   bool * GameGridCache = new bool[noOfXCells * noOfYCells]();
   
+  //Handle giving life only since by default (GameGridCache) all cells are dead;
   for (int x = 0; x < noOfXCells; x++)
   {
     for (int y = 0; y < noOfYCells; y++)
     {
       if (IsCellAlive(x,y))
       {
-        if (ReturnNumberOfLiveNeighboursForCell(x,y) < 2)
+        //Any live cell with two or three live neighbours lives on to the next generation.
+        if((ReturnNumberOfLiveNeighboursForCell(x,y) == 2) || (ReturnNumberOfLiveNeighboursForCell(x,y) == 3))
         {
-          GameGridCache[x * noOfYCells + y] = false;
+          GameGridCache[x * noOfYCells + y] = true;
         }
-        else if((ReturnNumberOfLiveNeighboursForCell(x,y) == 2) || (ReturnNumberOfLiveNeighboursForCell(x,y) == 3))
+      }
+      else
+      {
+        //Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+        if(ReturnNumberOfLiveNeighboursForCell(x,y) == 3) 
         {
           GameGridCache[x * noOfYCells + y] = true;
         }

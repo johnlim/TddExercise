@@ -247,8 +247,7 @@ TEST(GameOfLifeEngine, AnyLiveCellWithThreeNeighboursLivesOnToNextGeneration) //
 {
   int noOfXCells = 3;
   int noOfYCells = 3;
-  int NoOfCellsChecked = 0;
-  
+    
   GameOfLife game(noOfXCells, noOfYCells);
 
   game.GiveCellLife(2,2);
@@ -258,21 +257,112 @@ TEST(GameOfLifeEngine, AnyLiveCellWithThreeNeighboursLivesOnToNextGeneration) //
 
   game.TriggerNextGeneration();
 
-  for(int x = 0; x < noOfXCells; x++)
-  {
-    for(int y = 0; y < noOfYCells; y++)
-    {
-      if(x==1 && y==1)
-      {
-        CHECK_TRUE(game.IsCellAlive(x,y));
-        NoOfCellsChecked++;
-      }
-      else
-      {
-        CHECK_FALSE(game.IsCellAlive(x,y));
-        NoOfCellsChecked++;
-      }
-    }
-  }
-  LONGS_EQUAL(NoOfCellsChecked, noOfXCells * noOfYCells);
+  CHECK_TRUE(game.IsCellAlive(1,1)); 
+}
+
+TEST(GameOfLifeEngine, AnyLiveCellWithFourNeighbourDiesOnNextGeneration) //Any live cell with more than three live neighbours dies, as if by overcrowding.
+{
+
+  GameOfLife game(4,5);
+
+                          //----------------
+  game.GiveCellLife(0,0); //  * |   |   |
+  game.GiveCellLife(0,1); //----------------
+  game.GiveCellLife(0,2); //  * | * |   |
+  game.GiveCellLife(1,1); //----------------
+  game.GiveCellLife(1,0); //  * | * |   |
+                          //----------------
+
+  game.TriggerNextGeneration();
+  CHECK_FALSE(game.IsCellAlive(1,1));
+
+}
+
+TEST(GameOfLifeEngine, AnyLiveCellWithFiveNeighbourDiesOnNextGeneration) //Any live cell with more than three live neighbours dies, as if by overcrowding.
+{
+
+  GameOfLife game(4,5);
+                            
+  game.GiveCellLife(0,0); //----------------
+  game.GiveCellLife(0,1); //  * | * |   |
+  game.GiveCellLife(0,2); //----------------
+  game.GiveCellLife(1,1); //  * | * |   |
+  game.GiveCellLife(1,0); //----------------
+  game.GiveCellLife(1,2); //  * | * |   |
+                          //----------------
+
+  game.TriggerNextGeneration();
+  CHECK_FALSE(game.IsCellAlive(1,1));
+
+}
+
+TEST(GameOfLifeEngine, AnyLiveCellWithSixNeighbourDiesOnNextGeneration) //Any live cell with more than three live neighbours dies, as if by overcrowding.
+{
+
+  GameOfLife game(4,5);
+                            
+  game.GiveCellLife(0,0); //----------------
+  game.GiveCellLife(0,1); //  * | * |   |
+  game.GiveCellLife(0,2); //----------------
+  game.GiveCellLife(1,1); //  * | * |   |
+  game.GiveCellLife(1,0); //----------------
+  game.GiveCellLife(1,2); //  * | * | * |
+  game.GiveCellLife(2,0); //----------------
+
+  game.TriggerNextGeneration();
+  CHECK_FALSE(game.IsCellAlive(1,1));
+}
+
+TEST(GameOfLifeEngine, AnyLiveCellWithSevenNeighbourDiesOnNextGeneration) //Any live cell with more than three live neighbours dies, as if by overcrowding.
+{
+
+  GameOfLife game(4,5);
+                            
+  game.GiveCellLife(0,0); //----------------
+  game.GiveCellLife(0,1); //  * | * |   |
+  game.GiveCellLife(0,2); //----------------
+  game.GiveCellLife(1,1); //  * | * | * |
+  game.GiveCellLife(1,0); //----------------
+  game.GiveCellLife(1,2); //  * | * | * |
+  game.GiveCellLife(2,0); //----------------
+  game.GiveCellLife(2,1);
+
+  game.TriggerNextGeneration();
+  CHECK_FALSE(game.IsCellAlive(1,1));
+}
+
+TEST(GameOfLifeEngine, AnyLiveCellWithEightNeighbourDiesOnNextGeneration) //Any live cell with more than three live neighbours dies, as if by overcrowding.
+{
+
+  GameOfLife game(4,5);
+
+  game.GiveCellLife(0,0); //----------------
+  game.GiveCellLife(0,1); //  * | * | * |
+  game.GiveCellLife(0,2); //----------------
+  game.GiveCellLife(1,1); //  * | * | * |
+  game.GiveCellLife(1,0); //----------------
+  game.GiveCellLife(1,2); //  * | * | * |
+  game.GiveCellLife(2,0); //----------------
+  game.GiveCellLife(2,1); 
+  game.GiveCellLife(2,2);
+
+  game.TriggerNextGeneration();
+  CHECK_FALSE(game.IsCellAlive(1,1));
+}
+
+TEST(GameOfLifeEngine, AnyDeadCellWithExactlyThreeLiveNeighboursBecomesALiveCell) //Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+{
+  GameOfLife game(4,5);
+
+  game.GiveCellLife(0,1); //----------------
+  game.GiveCellLife(1,0); //    |   |   |
+  game.GiveCellLife(1,1); //----------------
+                          //  * | * |   |
+                          //----------------
+                          //    | * |   |
+                          //----------------
+
+  game.TriggerNextGeneration();
+  CHECK_TRUE(game.IsCellAlive(0,0));
+  
 }
