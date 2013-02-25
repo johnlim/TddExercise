@@ -13,7 +13,7 @@ GameOfLife::GameOfLife(int noOfXCells, int noOfYCells)
 
 GameOfLife::~GameOfLife()
 {
-  delete GameGrid;
+  delete[] GameGrid;
 }
 
 void GameOfLife::CreateGrid()
@@ -97,5 +97,5 @@ void GameOfLife::TriggerNextGeneration(void)
   }
   memcpy(GameGrid, GameGridCache, noOfXCells * noOfYCells * sizeof(bool));
 
-  delete GameGridCache;
+  delete[] GameGridCache;
 }
