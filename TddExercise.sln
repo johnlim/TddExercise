@@ -7,9 +7,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest\UnitTe
 	ProjectSection(ProjectDependencies) = postProject
 		{22BD0322-1891-460A-A959-6B66360115BC} = {22BD0322-1891-460A-A959-6B66360115BC}
 		{67BDD56B-F96D-4F13-932B-FC63E741BBDB} = {67BDD56B-F96D-4F13-932B-FC63E741BBDB}
+		{51518BF8-C8ED-4CB1-8579-7BBB6C57BF36} = {51518BF8-C8ED-4CB1-8579-7BBB6C57BF36}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Calculator", "Calculator\Calculator.vcxproj", "{67BDD56B-F96D-4F13-932B-FC63E741BBDB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StringCalculator", "StringCalculator\StringCalculator.vcxproj", "{51518BF8-C8ED-4CB1-8579-7BBB6C57BF36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +32,10 @@ Global
 		{67BDD56B-F96D-4F13-932B-FC63E741BBDB}.Debug|Win32.Build.0 = Debug|Win32
 		{67BDD56B-F96D-4F13-932B-FC63E741BBDB}.Release|Win32.ActiveCfg = Release|Win32
 		{67BDD56B-F96D-4F13-932B-FC63E741BBDB}.Release|Win32.Build.0 = Release|Win32
+		{51518BF8-C8ED-4CB1-8579-7BBB6C57BF36}.Debug|Win32.ActiveCfg = Debug|Win32
+		{51518BF8-C8ED-4CB1-8579-7BBB6C57BF36}.Debug|Win32.Build.0 = Debug|Win32
+		{51518BF8-C8ED-4CB1-8579-7BBB6C57BF36}.Release|Win32.ActiveCfg = Release|Win32
+		{51518BF8-C8ED-4CB1-8579-7BBB6C57BF36}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

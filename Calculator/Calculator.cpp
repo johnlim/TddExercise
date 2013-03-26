@@ -51,13 +51,13 @@ std::string Calculator::stripWhiteSpaces( std::string str )
   return result;
 }
 
-#include <vector>
+#include <list>
 using namespace std;
 
 
 size_t Calculator::returnNumberOfTokens( std::string str )
 {
-  vector<string> sv;
+  list<string> sv;
   string str2;
 
   for (size_t i = 0; i< str.length(); i++ )

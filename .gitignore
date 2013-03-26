@@ -4,6 +4,7 @@
 /GameOfLife/Debug
 /UnitTest/Debug
 /Calculator/Debug
+/StringCalculator/Debug
 
 #Ignore VS2010 IDE generated files
 *.user
