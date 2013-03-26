@@ -25,12 +25,12 @@ wstring stringCalculator::calculate(list<wstring> inputString)
   list<wstring>::iterator listIterator = inputString.begin();
   while (inputString.size() > 1) 
   {
-    if(*listIterator == L"*") 
-    {
+    //if(*listIterator == L"*") 
+    //{
       HandleMulitplication(inputString, listIterator);
-      continue;
-    }
-    else if(*listIterator == L"+") 
+    //  continue;
+    //}
+    /*else */if(*listIterator == L"+") 
     {
       result = leftOperand(listIterator) + rightOperand(listIterator);
       resultString = std::to_wstring(result);
@@ -60,10 +60,20 @@ double stringCalculator::rightOperand(list<wstring>::iterator listIterator)
 
 void stringCalculator::HandleMulitplication(list<wstring>& inputString, list<wstring>::iterator& listIterator)
 {
-	wstring resultString = L"Error";
-	long double result = leftOperand(listIterator) * rightOperand(listIterator);
-	resultString = std::to_wstring(result);
-	*next(listIterator) = resultString;
-	inputString.erase(prev(listIterator), next(listIterator));      
+	//list<wstring>::iterator cacheIterator = listIterator;
+	while( listIterator != inputString.end())
+	{
+		if (*listIterator == L"*") {
+			wstring resultString = L"Error";
+			long double result = leftOperand(listIterator) * rightOperand(listIterator);
+			resultString = std::to_wstring(result);
+			*next(listIterator) = resultString;
+			inputString.erase(prev(listIterator), next(listIterator));      
+			listIterator = inputString.begin();
+			continue;
+		}
+		wcout << L"LI=" << *listIterator;
+		listIterator++;
+	}
 	listIterator = inputString.begin();
 }
