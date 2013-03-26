@@ -27,11 +27,7 @@ wstring stringCalculator::calculate(list<wstring> inputString)
   {
     if(*listIterator == L"*") 
     {
-      result = leftOperand(listIterator) * rightOperand(listIterator);
-      resultString = std::to_wstring(result);
-      *next(listIterator) = resultString;
-      inputString.erase(prev(listIterator), next(listIterator));      
-      listIterator = inputString.begin();
+      HandleMulitplication(inputString, listIterator);
       continue;
     }
     else if(*listIterator == L"+") 
@@ -60,4 +56,14 @@ double stringCalculator::rightOperand(list<wstring>::iterator listIterator)
 {
   wstring::size_type stringTypeSize;
   return stod(*(next(listIterator)),  &stringTypeSize);
+}
+
+void stringCalculator::HandleMulitplication(list<wstring>& inputString, list<wstring>::iterator& listIterator)
+{
+	wstring resultString = L"Error";
+	long double result = leftOperand(listIterator) * rightOperand(listIterator);
+	resultString = std::to_wstring(result);
+	*next(listIterator) = resultString;
+	inputString.erase(prev(listIterator), next(listIterator));      
+	listIterator = inputString.begin();
 }
