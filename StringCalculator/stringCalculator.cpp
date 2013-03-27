@@ -3,17 +3,9 @@
 
 wstring stringCalculator::calculate(list<wstring> inputString)
 {
-  long double result = 0;
-  wstring resultString = L"Error";
- 
-  list<wstring>::iterator listIterator = inputString.begin();
-  
-    handleMulitplication(inputString, listIterator);
-    handleAddition(inputString, listIterator);
-    
-  return *inputString.begin();
-  
-  
+	handleMulitplication(inputString);
+  handleAddition(inputString);
+  return *inputString.begin();  
 }
 
 double stringCalculator::leftOperand(list<wstring>::iterator listIterator)
@@ -28,9 +20,9 @@ double stringCalculator::rightOperand(list<wstring>::iterator listIterator)
   return stod(*(next(listIterator)),  &stringTypeSize);
 }
 
-void stringCalculator::handleMulitplication(list<wstring>& inputString, list<wstring>::iterator& listIterator)
+void stringCalculator::handleMulitplication(list<wstring>& inputString)
 {
-	//list<wstring>::iterator cacheIterator = listIterator;
+	list<wstring>::iterator listIterator = inputString.begin();
 	while( listIterator != inputString.end())
 	{
 		if (*listIterator == L"*") {
@@ -44,11 +36,11 @@ void stringCalculator::handleMulitplication(list<wstring>& inputString, list<wst
 		}
 		listIterator++;
 	}
-	listIterator = inputString.begin();
 }
 
-void stringCalculator::handleAddition(list<wstring>& inputString, list<wstring>::iterator& listIterator)
+void stringCalculator::handleAddition(list<wstring>& inputString)
 {
+	list<wstring>::iterator listIterator = inputString.begin();
   while( listIterator != inputString.end()) {
     if(*listIterator == L"+") 
     {
@@ -61,5 +53,4 @@ void stringCalculator::handleAddition(list<wstring>& inputString, list<wstring>:
     }
    listIterator++;
   }
-  listIterator = inputString.begin();
 }
