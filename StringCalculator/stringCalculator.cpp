@@ -5,9 +5,7 @@ wstring stringCalculator::calculate(list<wstring> inputString)
 {
   long double result = 0;
   wstring resultString = L"Error";
-  list<wstring> cache(inputString);
-  int i = 0;
-  
+ 
   list<wstring>::iterator listIterator = inputString.begin();
   
     handleMulitplication(inputString, listIterator);
