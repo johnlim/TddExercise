@@ -7,39 +7,20 @@ wstring stringCalculator::calculate(list<wstring> inputString)
   wstring resultString = L"Error";
   list<wstring> cache(inputString);
   int i = 0;
-  /*for( list<wstring>::iterator listIterator = inputString.begin(); listIterator != inputString.end(); listIterator++)
-  {    
-    if(*listIterator == L"+") {
-      result = leftOperand(listIterator) + rightOperand(listIterator);
-      resultString = std::to_wstring(result);
-      *next(listIterator) = resultString; 
-      listIterator = inputString.begin();
-      for(int x = 0; x < i; x++) {
-        listIterator++;
-      }
-      inputString.erase(prev(listIterator), next(listIterator));
-      break;
-    } 
-    i++;
-  }*/
+  
   list<wstring>::iterator listIterator = inputString.begin();
-  while (inputString.size() > 1) 
-  {
-    //if(*listIterator == L"*") 
-    //{
-      HandleMulitplication(inputString, listIterator);
-    //  continue;
-    //}
-    /*else */if(*listIterator == L"+") 
+  
+    HandleMulitplication(inputString, listIterator);
+    while( listIterator != inputString.end()) {
+    if(*listIterator == L"+") 
     {
       result = leftOperand(listIterator) + rightOperand(listIterator);
       resultString = std::to_wstring(result);
       *next(listIterator) = resultString;
       inputString.erase(prev(listIterator), next(listIterator));      
       listIterator = inputString.begin();
-      continue;
     }
-    listIterator++;
+   listIterator++;
   }
   return *inputString.begin();
   
