@@ -10,5 +10,6 @@ public:
 private:
   double leftOperand(list<wstring>::iterator listIterator);
   double rightOperand(list<wstring>::iterator listIterator);
-	void stringCalculator::HandleMulitplication(list<wstring>& inputString, list<wstring>::iterator& listIterator);
+	void stringCalculator::handleMulitplication(list<wstring>& inputString, list<wstring>::iterator& listIterator);
+  void stringCalculator::handleAddition(list<wstring>& inputString, list<wstring>::iterator& listIterator);
 };
