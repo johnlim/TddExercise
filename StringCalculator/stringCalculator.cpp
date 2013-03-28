@@ -5,7 +5,10 @@ static void foldResultIntoList(long double result, list<wstring>& inputString, l
 
 wstring stringCalculator::calculate(list<wstring> inputString)
 {
-	handleMulitplication(inputString);
+  //first handle multiplication
+	handleMultiplication(inputString);
+  //then handle division
+  handleDivision(inputString);
   handleAddition(inputString);
   return *inputString.begin();  
 }
@@ -22,7 +25,7 @@ double stringCalculator::rightOperand(list<wstring>::iterator listIterator)
   return stod(*(next(listIterator)),  &stringTypeSize);
 }
 
-void stringCalculator::handleMulitplication(list<wstring>& inputString)
+void stringCalculator::handleMultiplication(list<wstring>& inputString)
 {
 	list<wstring>::iterator listIterator = inputString.begin();
 	while( listIterator != inputString.end())
@@ -44,6 +47,21 @@ void stringCalculator::handleAddition(list<wstring>& inputString)
     if(*listIterator == L"+") 
     {
       long double result = leftOperand(listIterator) + rightOperand(listIterator);
+      foldResultIntoList(result, inputString, listIterator);
+			listIterator = inputString.begin();
+      continue;
+    }
+   listIterator++;
+  }
+}
+
+void stringCalculator::handleDivision(list<wstring>& inputString)
+{
+  list<wstring>::iterator listIterator = inputString.begin();
+  while( listIterator != inputString.end()) {
+    if(*listIterator == L"/") 
+    {
+      long double result = leftOperand(listIterator) / rightOperand(listIterator);
       foldResultIntoList(result, inputString, listIterator);
 			listIterator = inputString.begin();
       continue;
