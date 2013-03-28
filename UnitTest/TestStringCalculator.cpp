@@ -73,3 +73,15 @@ TEST(StringCalculator, TestMulitplicationShouldHandledFirstFollowedByAddition)
   long double numericResult = stod(result,  &stringTypeSize);
   DOUBLES_EQUAL(14,numericResult,0);
 }
+TEST(StringCalculator, TestDivisionOf2Numbers)
+{
+  std::list<std::wstring> inputString;
+  wstring::size_type stringTypeSize;
+  inputString.push_back(L"3");
+  inputString.push_back(L"/");
+  inputString.push_back(L"2");
+  wstring result = calculator.calculate(inputString);
+  long double numericResult = stod(result,  &stringTypeSize);
+  DOUBLES_EQUAL(1.5, numericResult,0);
+
+}
