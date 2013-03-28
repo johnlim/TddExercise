@@ -1,6 +1,8 @@
 #include "stringCalculator.h"
 #include <iostream>
 
+static void foldResultIntoList(long double result, list<wstring>& inputString, list<wstring>::iterator& listIterator);
+
 wstring stringCalculator::calculate(list<wstring> inputString)
 {
 	handleMulitplication(inputString);
@@ -26,11 +28,8 @@ void stringCalculator::handleMulitplication(list<wstring>& inputString)
 	while( listIterator != inputString.end())
 	{
 		if (*listIterator == L"*") {
-			wstring resultString = L"Error";
 			long double result = leftOperand(listIterator) * rightOperand(listIterator);
-			resultString = std::to_wstring(result);
-			*next(listIterator) = resultString;
-			inputString.erase(prev(listIterator), next(listIterator));      
+      foldResultIntoList(result, inputString, listIterator);
 			listIterator = inputString.begin();
 			continue;
 		}
@@ -45,12 +44,17 @@ void stringCalculator::handleAddition(list<wstring>& inputString)
     if(*listIterator == L"+") 
     {
       long double result = leftOperand(listIterator) + rightOperand(listIterator);
-      wstring resultString = std::to_wstring(result);
-      *next(listIterator) = resultString;
-      inputString.erase(prev(listIterator), next(listIterator));      
-      listIterator = inputString.begin();
+      foldResultIntoList(result, inputString, listIterator);
+			listIterator = inputString.begin();
       continue;
     }
    listIterator++;
   }
+}
+
+void foldResultIntoList(long double result, list<wstring>& inputString, list<wstring>::iterator& listIterator)
+{
+  wstring resultString = std::to_wstring(result);
+	*next(listIterator) = resultString;
+	inputString.erase(prev(listIterator), next(listIterator));      
 }
