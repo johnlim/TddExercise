@@ -83,5 +83,20 @@ TEST(StringCalculator, TestDivisionOf2Numbers)
   wstring result = calculator.calculate(inputString);
   long double numericResult = stod(result,  &stringTypeSize);
   DOUBLES_EQUAL(1.5, numericResult,0);
+}
 
+TEST(StringCalculator, TestMultiplicationIsCalculatedFirstThenDivisionThenAddition)
+{
+  std::list<std::wstring> inputString;
+  wstring::size_type stringTypeSize;
+  inputString.push_back(L"3");
+  inputString.push_back(L"/");
+  inputString.push_back(L"2");
+  inputString.push_back(L"+");
+  inputString.push_back(L"3");
+  inputString.push_back(L"*");
+  inputString.push_back(L"11");
+  wstring result = calculator.calculate(inputString);
+  long double numericResult = stod(result,  &stringTypeSize);
+  DOUBLES_EQUAL(34.5, numericResult,0);
 }
