@@ -15,6 +15,7 @@ private:
   void stringCalculator::handleDivision(list<wstring>& inputString);
   void stringCalculator::handleAddition(list<wstring>& inputString);
 	void stringCalculator::handleSubtraction(list<wstring>& inputString);
+	void stringCalculator::foldResultIntoList(long double result, list<wstring>& inputString, list<wstring>::iterator& listIterator);
 
 	stringCalculator(const stringCalculator&);
 	stringCalculator& operator=(const stringCalculator&);

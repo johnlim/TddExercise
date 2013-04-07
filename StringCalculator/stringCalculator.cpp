@@ -1,8 +1,6 @@
 #include "stringCalculator.h"
 #include <iostream>
 
-static void foldResultIntoList(long double result, list<wstring>& inputString, list<wstring>::iterator& listIterator);
-
 stringCalculator::stringCalculator()
 {
 
@@ -15,7 +13,7 @@ wstring stringCalculator::calculate(list<wstring> inputString)
   //then handle division
   handleDivision(inputString);
   handleAddition(inputString);
-	handleMinus(inputString);
+	handleSubtraction(inputString);
   return *inputString.begin();  
 }
 
@@ -92,7 +90,7 @@ void stringCalculator::handleSubtraction(list<wstring>& inputString)
 
 }
 
-void foldResultIntoList(long double result, list<wstring>& inputString, list<wstring>::iterator& listIterator)
+void stringCalculator::foldResultIntoList(long double result, list<wstring>& inputString, list<wstring>::iterator& listIterator)
 {
   wstring resultString = std::to_wstring(result);
 	*next(listIterator) = resultString;
