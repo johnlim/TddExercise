@@ -76,7 +76,7 @@ void stringCalculator::handleDivision(list<wstring>& inputString)
   }
 }
 
-void stringCalculator::handleMinus(list<wstring>& inputString)
+void stringCalculator::handleSubtraction(list<wstring>& inputString)
 {
 	list<wstring>::iterator listIterator = inputString.begin();
   while( listIterator != inputString.end()) {
