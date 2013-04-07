@@ -6,6 +6,7 @@ using namespace std;
 
 class stringCalculator {
 public:
+	stringCalculator();
   wstring calculate(list<wstring> inputString);
 private:
   double leftOperand(list<wstring>::iterator listIterator);
@@ -13,4 +14,8 @@ private:
 	void stringCalculator::handleMultiplication(list<wstring>& inputString);
   void stringCalculator::handleDivision(list<wstring>& inputString);
   void stringCalculator::handleAddition(list<wstring>& inputString);
+	void stringCalculator::handleMinus(list<wstring>& inputString);
+
+	stringCalculator(const stringCalculator&);
+	stringCalculator& operator=(const stringCalculator&);
 };

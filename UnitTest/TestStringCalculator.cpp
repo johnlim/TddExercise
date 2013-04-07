@@ -100,3 +100,45 @@ TEST(StringCalculator, TestMultiplicationIsCalculatedFirstThenDivisionThenAdditi
   long double numericResult = stod(result,  &stringTypeSize);
   DOUBLES_EQUAL(34.5, numericResult,0);
 }
+
+TEST(StringCalculator, TestMinusOfTwoPositiveNumbersIsCorrect)
+{
+	std::list<std::wstring> inputString;
+	wstring::size_type stringTypeSize;
+	inputString.push_back(L"4");
+	inputString.push_back(L"-");
+	inputString.push_back(L"2");
+	wstring result = calculator.calculate(inputString);
+	double numericResult = stod(result, &stringTypeSize);
+	DOUBLES_EQUAL(2, numericResult, 0);
+}
+
+TEST(StringCalculator, TestMinusOfTwoNegativeNumbersIsCorrect)
+{
+	std::list<std::wstring> inputString;
+	wstring::size_type stringTypeSize;
+	inputString.push_back(L"-4");
+	inputString.push_back(L"-");
+	inputString.push_back(L"-2");
+	wstring result = calculator.calculate(inputString);
+	double numericResult = stod(result, &stringTypeSize);
+	DOUBLES_EQUAL(-2, numericResult, 0);
+}
+
+TEST(StringCalculator, TestMultiplicationIsCalculatedFirstThenDivisionThenAdditionThenMinus)
+{
+  std::list<std::wstring> inputString;
+  wstring::size_type stringTypeSize;
+  inputString.push_back(L"7");
+	inputString.push_back(L"-");
+  inputString.push_back(L"3");
+  inputString.push_back(L"/");
+  inputString.push_back(L"2");
+  inputString.push_back(L"+");
+  inputString.push_back(L"3");
+  inputString.push_back(L"*");
+  inputString.push_back(L"11");
+  wstring result = calculator.calculate(inputString);
+  long double numericResult = stod(result,  &stringTypeSize);
+  DOUBLES_EQUAL(-27.5, numericResult,0);
+}
