@@ -69,6 +69,7 @@
     <ClCompile Include="TestCalculator.cpp" />
     <ClCompile Include="TestGameOfLifeEngine.cpp" />
     <ClCompile Include="TestStringCalculator.cpp" />
+    <ClCompile Include="TestTokenizer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
