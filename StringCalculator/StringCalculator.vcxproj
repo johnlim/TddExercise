@@ -10,6 +10,12 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="StringCalculator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="StringCalculator.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{51518BF8-C8ED-4CB1-8579-7BBB6C57BF36}</ProjectGuid>
     <RootNamespace>StringCalculator</RootNamespace>
@@ -59,12 +65,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="stringCalculator.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="stringCalculator.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
