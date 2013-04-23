@@ -12,9 +12,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="StringCalculator.cpp" />
+    <ClCompile Include="Tokenizer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StringCalculator.h" />
+    <ClInclude Include="Tokenizer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{51518BF8-C8ED-4CB1-8579-7BBB6C57BF36}</ProjectGuid>

@@ -1,4 +1,5 @@
 #include "StringCalculator.h"
+#include "Tokenizer.h"
 
 StringCalculator::StringCalculator()
 {
@@ -7,7 +8,7 @@ StringCalculator::StringCalculator()
 
 double StringCalculator::calculate(string inputString)
 {
-  Tokenizer inputTokens;
-  list<string> inputTokenizedString = inputTokens.tokenizer(inputString);
+  MyTokenizer inputTokens;
+  list<string> inputTokenizedString = inputTokens.tokenize(inputString);
   return 3;
 }
