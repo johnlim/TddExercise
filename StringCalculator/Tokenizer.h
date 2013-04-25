@@ -6,9 +6,9 @@
 //
 using namespace std;
 
-class MyTokenizer{
+class Tokenizer{
 public:
-  list<string> tokenize(std::string inputString);
+  virtual list<string> tokenize(std::string inputString) = 0;
 };
 
 #endif //_MyTokenizer_H_
