@@ -25,16 +25,16 @@ private:
 class World{
 public:
   void giveCellLife(const Cell& _cell);
-  bool isCellAlive(Cell _cell);
+  bool isCellAlive(const Cell& _cell);
   World tick();
-  int numberOfLiveNeighbours(Cell _cell);
+  int numberOfLiveNeighbours(const Cell& _cell);
 
 private:
   std::set<Cell> recordOfLivingCells;
-  bool cellHasTwoOrThreeLiveNeighbours(Cell _cell);
-  bool deadCellHasExactlyThreeLiveNeighbours(Cell _cell);
-  void tickOfLiveCells(World& worldOfNextTick, Cell liveCell);
-  void tickOfDeadCells(World& worldOfNextTick, Cell liveCell);
+  bool cellHasTwoOrThreeLiveNeighbours(const Cell& _cell);
+  bool deadCellHasExactlyThreeLiveNeighbours(const Cell& _cell);
+  void tickOfLiveCells(World& worldOfNextTick, const Cell& liveCell);
+  void tickOfDeadCells(World& worldOfNextTick, const Cell& liveCell);
 };
 
 #endif

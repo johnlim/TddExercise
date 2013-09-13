@@ -34,7 +34,7 @@ void World::giveCellLife(const Cell& _cell){
   recordOfLivingCells.insert(_cell); 
 }
 
-bool World::isCellAlive(Cell _cell){
+bool World::isCellAlive(const Cell& _cell){
   return (recordOfLivingCells.count(_cell) > 0);
 }
 
@@ -48,7 +48,7 @@ World World::tick() {
   return nextWorld;
 }
   
-int World::numberOfLiveNeighbours(Cell _cell){
+int World::numberOfLiveNeighbours(const Cell& _cell){
   int liveNeighbourCount=0;
   for (int i = 0; i < _cell.neighbours().size(); i++){
     if(isCellAlive(_cell.neighbours()[i])){
@@ -58,21 +58,21 @@ int World::numberOfLiveNeighbours(Cell _cell){
   return liveNeighbourCount;
 }
 
-bool World::cellHasTwoOrThreeLiveNeighbours(Cell _cell){ 
+bool World::cellHasTwoOrThreeLiveNeighbours(const Cell& _cell){ 
     return (numberOfLiveNeighbours(_cell) == 2 || numberOfLiveNeighbours(_cell) == 3);    
 }
 
-bool World::deadCellHasExactlyThreeLiveNeighbours(Cell _cell){
+bool World::deadCellHasExactlyThreeLiveNeighbours(const Cell& _cell){
    return (!(isCellAlive(_cell)) && (numberOfLiveNeighbours(_cell) == 3));
 }
 
-void World::tickOfLiveCells(World& worldOfNextTick, Cell liveCell)
+void World::tickOfLiveCells(World& worldOfNextTick, const Cell& liveCell)
 {
   if( cellHasTwoOrThreeLiveNeighbours(liveCell) )
       worldOfNextTick.giveCellLife(liveCell);
 }
 
-void World::tickOfDeadCells(World& worldOfNextTick, Cell liveCell)
+void World::tickOfDeadCells(World& worldOfNextTick, const Cell& liveCell)
 {
   for(int i = 0; i < liveCell.neighbours().size(); i++){
       if(deadCellHasExactlyThreeLiveNeighbours(liveCell.neighbours()[i])){      
