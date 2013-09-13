@@ -7,20 +7,8 @@
 #ifndef _GAME_OF_LIFE_H_
 #define _GAME_OF_LIFE_H_
 
+#include "Cell.h"
 #include <set>
-#include <vector>
-
-class Cell{
-public:
-  Cell(int x, int y);
-  bool operator== (const Cell& _cell) const;
-  /*Note: operator== is not used by std::set. Elements a and b are considered equal if !(a < b) && !(b < a)*/
-  bool operator< (const Cell& _cell) const;
-  std::vector<Cell> neighbours() const;
-private:
-  int xCoordinate;
-  int yCoordinate;
-};
 
 class World{
 public:
