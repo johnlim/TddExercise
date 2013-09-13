@@ -32,6 +32,9 @@ public:
 private:
   std::set<Cell> recordOfLivingCells;
   bool cellHasTwoOrThreeLiveNeighbours(Cell _cell);
+  bool deadCellHasExactlyThreeLiveNeighbours(Cell _cell);
+  void tickOfLiveCells(World& worldOfNextTick, Cell liveCell);
+  void tickOfDeadCells(World& worldOfNextTick, Cell liveCell);
 };
 
 #endif
