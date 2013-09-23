@@ -1,11 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameOfLife", "GameOfLife\GameOfLife.vcxproj", "{22BD0322-1891-460A-A959-6B66360115BC}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest\UnitTest.vcxproj", "{A02AFB2A-2164-4079-A4D9-EA953658EC3C}"
 	ProjectSection(ProjectDependencies) = postProject
-		{22BD0322-1891-460A-A959-6B66360115BC} = {22BD0322-1891-460A-A959-6B66360115BC}
 		{67BDD56B-F96D-4F13-932B-FC63E741BBDB} = {67BDD56B-F96D-4F13-932B-FC63E741BBDB}
 		{51518BF8-C8ED-4CB1-8579-7BBB6C57BF36} = {51518BF8-C8ED-4CB1-8579-7BBB6C57BF36}
 	EndProjectSection
@@ -20,10 +17,6 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{22BD0322-1891-460A-A959-6B66360115BC}.Debug|Win32.ActiveCfg = Debug|Win32
-		{22BD0322-1891-460A-A959-6B66360115BC}.Debug|Win32.Build.0 = Debug|Win32
-		{22BD0322-1891-460A-A959-6B66360115BC}.Release|Win32.ActiveCfg = Release|Win32
-		{22BD0322-1891-460A-A959-6B66360115BC}.Release|Win32.Build.0 = Release|Win32
 		{A02AFB2A-2164-4079-A4D9-EA953658EC3C}.Debug|Win32.ActiveCfg = Debug|Win32
 		{A02AFB2A-2164-4079-A4D9-EA953658EC3C}.Debug|Win32.Build.0 = Debug|Win32
 		{A02AFB2A-2164-4079-A4D9-EA953658EC3C}.Release|Win32.ActiveCfg = Release|Win32

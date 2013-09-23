@@ -1,7 +1,14 @@
 #ignore compiler generated folders/files:
 /ipch
 /Debug
+/GameOfLife/ipch
 /GameOfLife/Debug
+/GameOfLife/Release
+/GameOfLife/GameOfLife/Debug
+/GameOfLife/GameOfLife/Release
+/GameOfLife/UnitTest/Debug
+/GameOfLife/UnitTest/Release
+/GameOfLife/lib/*.lib
 /UnitTest/Debug
 /Calculator/Debug
 /StringCalculator/Debug

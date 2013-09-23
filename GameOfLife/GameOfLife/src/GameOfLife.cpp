@@ -22,7 +22,7 @@ World World::tick() {
   
 int World::numberOfLiveNeighbours(const Cell& _cell){
   int liveNeighbourCount=0;
-  for (int i = 0; i < _cell.neighbours().size(); i++){
+  for (unsigned int i = 0; i < _cell.neighbours().size(); i++){
     if(isCellAlive(_cell.neighbours()[i])){
       liveNeighbourCount++;
     }
@@ -46,7 +46,7 @@ void World::tickOfLiveCells(World& worldOfNextTick, const Cell& liveCell)
 
 void World::tickOfDeadCells(World& worldOfNextTick, const Cell& liveCell)
 {
-  for(int i = 0; i < liveCell.neighbours().size(); i++){
+  for(unsigned int i = 0; i < liveCell.neighbours().size(); i++){
       if(deadCellHasExactlyThreeLiveNeighbours(liveCell.neighbours()[i])){      
         worldOfNextTick.giveCellLife(liveCell.neighbours()[i]);
       }

@@ -1,0 +1,1 @@
+This directory will contain the last GameOfLife lib created by the visual studio builds.  

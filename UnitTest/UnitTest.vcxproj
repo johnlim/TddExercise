@@ -67,7 +67,6 @@
   <ItemGroup>
     <ClCompile Include="AllTests.cpp" />
     <ClCompile Include="TestCalculator.cpp" />
-    <ClCompile Include="TestGameOfLifeEngine.cpp" />
     <ClCompile Include="TestMemoryIO.cpp" />
     <ClCompile Include="TestStringCalculator.cpp" />
   </ItemGroup>

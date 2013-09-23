@@ -69,7 +69,7 @@ TEST(testGameOfLife, testWorldKnowsHowManyNeighborsAreLiveCells)
   neighbours = createNeighboursForCell(_cell);
   LONGS_EQUAL(0, _world.numberOfLiveNeighbours(_cell));
   
-  for( int i = 0; i < neighbours.size(); i++)
+  for( unsigned int i = 0; i < neighbours.size(); i++)
   {
     _world.giveCellLife(neighbours[i]);
     LONGS_EQUAL(i+1, _world.numberOfLiveNeighbours(_cell));
