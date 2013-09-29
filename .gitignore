@@ -1,6 +1,5 @@
 #ignore compiler generated folders/files:
 /ipch
-/Debug
 /GameOfLife/ipch
 /GameOfLife/Debug
 /GameOfLife/Release
@@ -9,9 +8,10 @@
 /GameOfLife/UnitTest/Debug
 /GameOfLife/UnitTest/Release
 /GameOfLife/lib/*.lib
-/UnitTest/Debug
 /Calculator/Debug
-/StringCalculator/Debug
+/Calculator/UnitTest/Debug
+/Calculator/Calculator/Debug
+/Calculator/StringCalculator/Debug
 
 #Ignore VS2010 IDE generated files
 *.user

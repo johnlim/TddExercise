@@ -12,7 +12,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Calculator", "Calculator\Ca
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StringCalculator", "StringCalculator\StringCalculator.vcxproj", "{51518BF8-C8ED-4CB1-8579-7BBB6C57BF36}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppUTest", "cpputest\CppUTest.vcxproj", "{F468F539-27BD-468E-BE64-DDE641400B51}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppUTest", "..\cpputest\CppUTest.vcxproj", "{F468F539-27BD-468E-BE64-DDE641400B51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
