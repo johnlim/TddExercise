@@ -1,10 +1,6 @@
 TddExercise
 ===========
+This repository contains my coding exercises. The current versions may not be the complete solution as I restart these exercises periodically. Look at the version history for past solutions.
 
-Remote ping pong programming
-
-**Setup Instructions**
-1) Open TddExercise.sln
-2) Add the CppUTest project (clone from https://github.com/cpputest/cpputest.git) to the solution.
-3) Set the system environment variable CPPUTEST_HOME to the local path of your CppUTest distribution in (2).
+Use git clone --recursive https://github.com/johnlim/TddExercise.git to pull in the relevant submodules.
  
